@@ -1,0 +1,37 @@
+1. Try the statements below in REPL. Please answer that there are correct or not and
+explain the reasons.
+a. ​val id = 9527   //可以,此時id為一不可事後修改的int
+b. ​var number : Int = 5.6  //不行,因為int為整數型別
+c. ​var title = "Hello Kotlin!" //可以,此時title為一可事後修改的字串
+d. ​val content : String = null //不行,其為一non-null type的string。如果希望設為null 需寫成 val content:String?=null
+e. ​val number : Double? = 556.6    //可以,此時number為一double
+f. ​var list: List<String>? = ​listOf​(null, null) //不行,?位置錯誤。寫在string後表示可為null string, 寫在<>後表示可為null list。 正確為​var list: List<String?> = ​listOf​(null, null)  
+g. ​var list: List<String?>? = ​listOf​("Wayne", "Chen")  //可以,為一個可為null的list
+h. ​list.size //不行,前提須有g行程式碼,然後還是不行需改成i行。因為list為一可能為null之狀況需確認list不為null才有辦法取得size屬性
+i. ​list?.size  //可以,如前行描述
+
+
+2. Read the code below, choose the correct answer and explain the reason.
+var message = "Hello and welcome to AppWorks School :)"
+when (message.length) {
+0 -> println("Aye!")
+in 1..39 -> println("Your grace.")
+in 40..56 -> println("My lord.")
+else -> println("You know nothing...")
+}
+
+What will the code print?
+c. "Your grace" //因為整個message的字元長度為39
+
+
+3.Read the code below, choose the correct answer and explain the reason.
+val array = // Question
+val units = arrayOf("byte", "KB", "MB", "GB", "TB", "PB")
+for ((i, value) in array.withIndex()) {
+println("1 ${units[i]} = ${value.toLong()} bytes\n")
+}
+
+Which answer is the correct way to initialize the array to output
+d. val array = Array(6){1000.0.pow(it)} 
+//因為按照輸出內容知道其分別為1000的0,1,2,3,4,5次方，所以須使用1000.0.pow搭配it(其index)做使用。若使用10非it會變成每個都輸出1000的十次方
+
